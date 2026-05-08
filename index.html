@@ -4,154 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encuesta de Salud</title>
-
     <style>
-
         body {
             font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
-
-        .container {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            width: 400px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        .form-group {
+            margin-bottom: 15px;
         }
-
-        h1, h2 {
-            text-align: center;
-        }
-
         label {
             display: block;
-            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
-
-        input, select, button {
+        input, select {
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
+            padding: 8px;
+            box-sizing: border-box;
         }
-
         button {
-            background: #007bff;
+            background-color: #4CAF50;
             color: white;
+            padding: 10px 15px;
             border: none;
-            margin-top: 20px;
             cursor: pointer;
-        }
-
-        button:hover {
-            background: #0056b3;
-        }
-
-        table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+            font-size: 16px;
         }
-
-        table, th, td {
-            border: 1px solid #ccc;
+        button:hover {
+            background-color: #45a049;
         }
-
-        th {
-            background: #007bff;
-            color: white;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-
     </style>
 </head>
-
 <body>
 
-    <div class="container">
+    <h2>📋 Formulario de Encuesta de Salud</h2>
 
-        <h1>Encuesta de Salud</h1>
-
-        <form>
-
-            <!-- Edad -->
+    <form action="#">
+        <!-- Número de identificación o edad con rango -->
+        <div class="form-group">
             <label for="edad">Edad:</label>
             <input type="number" id="edad" name="edad" min="1" max="120" required>
+        </div>
 
-            <!-- Peso -->
-            <label for="peso">Peso (kg):</label>
-            <input type="number" id="peso" name="peso" min="1" max="300" required>
+        <!-- Nivel de dolor con control deslizante -->
+        <div class="form-group">
+            <label for="dolor">Nivel de dolor (0 = Nada, 10 = Insoportable):</label>
+            <input type="range" id="dolor" name="dolor" min="0" max="10" value="0" 
+                   oninput="document.getElementById('valorDolor').innerText = this.value">
+            <p>Valor seleccionado: <span id="valorDolor">0</span></p>
+        </div>
 
-            <!-- Nivel de dolor -->
-            <label for="dolor">Nivel de dolor:</label>
-            <input type="range" id="dolor" name="dolor" min="0" max="10">
-
-            <!-- Tipo de sangre -->
+        <!-- Tipo de sangre con menú desplegable -->
+        <div class="form-group">
             <label for="sangre">Tipo de sangre:</label>
             <select id="sangre" name="sangre" required>
-                <option value="">Seleccione</option>
-                <option>A+</option>
-                <option>A-</option>
-                <option>B+</option>
-                <option>B-</option>
-                <option>AB+</option>
-                <option>AB-</option>
-                <option>O+</option>
-                <option>O-</option>
+                <option value="">Seleccione...</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
             </select>
+        </div>
 
-            <button type="submit">Enviar</button>
-
-        </form>
-
-        <!-- TABLA -->
-        <h2>Resultados de la Encuesta</h2>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Edad</th>
-                    <th>Peso</th>
-                    <th>Nivel Dolor</th>
-                    <th>Tipo Sangre</th>
-                </tr>
-            </thead>
-
-            <tbody>
-              </tbody>
-</table>
-
-<script>
-document.getElementById("formulario").addEventListener("submit", function(e) {
-    e.preventDefault(); // EVITA QUE SE RECARGUE LA PÁGINA
-
-    let edad = document.getElementById("edad").value;
-    let peso = document.getElementById("peso").value;
-    let dolor = document.getElementById("nivel de dolor").value;
-    let sangre = document.getElementById("tipo de sangre").value;
-    
-    let tabla = document.getElementById("tabla").getElementsByTagName("tbody")[0];
-
-    let fila = tabla.insertRow();
-
-    fila.insertCell(0).textContent = edad;
-    fila.insertCell(1).textContent = peso;
-    fila.insertCell(2).textContent = nivel de dolor;
-    fila.insertCell(3).textContent = tipo de sangre;
-
-    // Limpia el formulario
-    document.getElementById("formulario").reset();
-});
-</script>
+        <button type="submit">Enviar</button>
+    </form>
 
 </body>
 </html>
