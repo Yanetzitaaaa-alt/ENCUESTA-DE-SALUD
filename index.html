@@ -7,8 +7,8 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
+              font-family: Arial, sans-serif;
+            background: #FFF9C4; /* Amarillo claro */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,34 +20,48 @@
             padding: 25px;
             border-radius: 10px;
             width: 400px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+            box-shadow: 0px 0px 15px rgba(233, 30, 99, 0.3); /* Sombra rosa */
+            border: 2px solid #F06292; /* Borde rosa */
         }
 
         h1, h2 {
             text-align: center;
+            color: #E91E63; /* Rosa fuerte */
         }
 
         label {
             display: block;
             margin-top: 15px;
+            color: #880E4F; /* Rosa oscuro */
+            font-weight: bold;
         }
 
         input, select, button {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
+            border: 1px solid #F8BBD0; /* Rosa claro */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border: 2px solid #E91E63;
         }
 
         button {
-            background: #007bff;
+            background: #E91E63; /* Rosa fuerte */
             color: white;
             border: none;
             margin-top: 20px;
             cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
         }
 
         button:hover {
-            background: #0056b3;
+            background: #C2185B; /* Rosa más oscuro al pasar el mouse */
         }
 
         table {
@@ -57,17 +71,21 @@
         }
 
         table, th, td {
-            border: 1px solid #ccc;
+            border: 1px solid #F8BBD0; /* Borde rosa claro */
         }
 
         th {
-            background: #007bff;
+            background: #E91E63; /* Rosa fuerte */
             color: white;
         }
 
         th, td {
             padding: 10px;
             text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background: #FFFDE7; /* Amarillo muy claro para filas pares */
         }
 
     </style>
