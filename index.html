@@ -127,31 +127,31 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>25</td>
-                    <td>70 kg</td>
-                    <td>3</td>
-                    <td>O+</td>
-                </tr>
+              </tbody>
+</table>
 
-                <tr>
-                    <td>40</td>
-                    <td>82 kg</td>
-                    <td>6</td>
-                    <td>A+</td>
-                </tr>
+<script>
+document.getElementById("formulario").addEventListener("submit", function(e) {
+    e.preventDefault(); // EVITA QUE SE RECARGUE LA PÁGINA
 
-                <tr>
-                    <td>31</td>
-                    <td>65 kg</td>
-                    <td>1</td>
-                    <td>B-</td>
-                </tr>
-            </tbody>
+    let edad = document.getElementById("edad").value;
+    let peso = document.getElementById("peso").value;
+    let dolor = document.getElementById("nivel de dolor").value;
+    let sangre = document.getElementById("tipo de sangre").value;
+    
+    let tabla = document.getElementById("tabla").getElementsByTagName("tbody")[0];
 
-        </table>
+    let fila = tabla.insertRow();
 
-    </div>
+    fila.insertCell(0).textContent = edad;
+    fila.insertCell(1).textContent = peso;
+    fila.insertCell(2).textContent = nivel de dolor;
+    fila.insertCell(2).textContent = tipo de sangre;
+
+    // Limpia el formulario
+    document.getElementById("formulario").reset();
+});
+</script>
 
 </body>
 </html>
